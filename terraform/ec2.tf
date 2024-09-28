@@ -5,6 +5,7 @@ resource "aws_instance" "wordpress_a" {
   subnet_id                   = aws_subnet.public_a.id
   vpc_security_group_ids      = [aws_security_group.wordpress_sg.id]
   associate_public_ip_address = true
+  key_name                    = aws_key_pair.wordpress_key_pair.key_name
 
   tags = {
     Name = "wordpress-az-a"
@@ -17,8 +18,15 @@ resource "aws_instance" "wordpress_b" {
   subnet_id                   = aws_subnet.public_b.id
   vpc_security_group_ids      = [aws_security_group.wordpress_sg.id]
   associate_public_ip_address = true
+  key_name                    = aws_key_pair.wordpress_key_pair.key_name
 
   tags = {
     Name = "wordpress-az-b"
   }
+}
+
+# Adiciona a chave pública na AWS
+resource "aws_key_pair" "wordpress_key_pair" {
+  key_name   = "wordpress-turbinado-key"
+  public_key = file("~/.ssh/wordpress-turbinado-key.pub")
 }
