@@ -3,7 +3,7 @@ resource "aws_security_group" "wordpress_sg" {
   vpc_id = aws_vpc.wordpress_turbinado.id
 
   ingress {
-    description      = "Allow HTTP"
+    description      = "Libera HTTP"
     from_port        = 80
     to_port          = 80
     protocol         = "tcp"
@@ -11,9 +11,17 @@ resource "aws_security_group" "wordpress_sg" {
   }
 
   ingress {
-    description      = "Allow SSH"
+    description      = "Libera SSH"
     from_port        = 22
     to_port          = 22
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description      = "Libera MySQL"
+    from_port        = 3306
+    to_port          = 3306
     protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"]
   }
