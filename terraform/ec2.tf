@@ -1,6 +1,6 @@
 # Cria minhas instâncias EC2
 resource "aws_instance" "wordpress_a" {
-  ami                         = "ami-0c02fb55956c7d316" #Imagem amazon linux
+  ami                         = "ami-08c40ec9ead489470" # Ubuntu Server 20.04 LTS para us-east-1
   instance_type               = "t2.micro"
   subnet_id                   = aws_subnet.public_a.id
   vpc_security_group_ids      = [aws_security_group.wordpress_sg.id]
@@ -13,7 +13,7 @@ resource "aws_instance" "wordpress_a" {
 }
 
 resource "aws_instance" "wordpress_b" {
-  ami                         = "ami-0c02fb55956c7d316"
+  ami                         = "ami-08c40ec9ead489470" # Ubuntu Server 20.04 LTS para us-east-1
   instance_type               = "t2.micro"
   subnet_id                   = aws_subnet.public_b.id
   vpc_security_group_ids      = [aws_security_group.wordpress_sg.id]
