@@ -79,4 +79,4 @@ Este projeto demonstra como configurar um ambiente WordPress otimizado na AWS ut
 2. Configurar arquitetura elástica com VMs e autoscaling.
 3. Configurar repositório de sessões Memcached em outro servidor.
 4. Configurar armazenamento de arquivos escalável e elástico(EFS).
-5. Arquitetura com CDN/WAF na frente do wordpress.
+5. Configurar CDN/WAF na frente do wordpress.
